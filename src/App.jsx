@@ -5,20 +5,20 @@ import PrivateRoute from "./components/PrivateRoute";
 
 export default function App() {
   return (
-    
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route
-        path="/dashboard/:username"
-        element={
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
-        }
-      />
-    </Routes>
-  </BrowserRouter>
-
+    <BrowserRouter>
+      {/* <div className="w-[1200px] min-w-[1200px] mx-auto"> */}
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route
+            path="/dashboard/:username"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      {/* </div> */}
+    </BrowserRouter>
   );
 }
