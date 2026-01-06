@@ -41,7 +41,7 @@ export default function Login() {
 
   return (
     <div className=" flex   justify-center bg-[#d75c99]">
-      <div className="w-[955px] ">
+      <div className="w-[955px]  ">
 
         <div>
           <div className="master-up bg-[url('/img/hdup.jpg')] h-[45px] bg-cover ]"></div>
