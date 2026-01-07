@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiAlertTriangle } from "react-icons/fi";
 import { PiDotsNineBold } from "react-icons/pi";
+import TopBar from "../components/module/TopBar";
+import SeeAndPrint from "../components/module/SeeAndPrint";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -43,44 +45,17 @@ export default function Login() {
   };
 
   return (
-    <div className=" flex   justify-center bg-[#d75c99]">
-      <div className="w-[955px] ">
-        <div>
-          <div className="master-up bg-[url('/img/hdup.jpg')] h-[45px] bg-cover ]"></div>
-          <div className="master-center bg-[url('/img/hdmd.jpg')] h-[58px] bg-cover ]">
-            <div
-              style={{
-                height: "27px",
-                width: "740px",
-                // paddingRight: "215px",
-                paddingTop: "31px",
-                textAlign: "right",
-                direction: "rtl",
-                color: "#FFFFFF",
-                fontFamily: "'b yekan', sans-serif",
-                fontSize: "1.1em",
-                fontWeight: "bold",
-              }}
-            >
-              <h2 className=" ">
-                اعلام نتایج آزمون ورودی کارآموزی وکالت سال 1404(کانون وکلا
-                دادگستری)
-              </h2>
-            </div>
-          </div>
-          <div className="master-down bg-[url('/img/hddn.jpg')] h-[22px] pt-[22px] bg-cover ]"></div>
-        </div>
+    <div className=" flex   justify-center ">
+      <div className="  ">
 
-        <div className="p-2 bg-white">
-          <div className="box-center text-right rounded text-md px-4 py-2 font-['tahoma'] text-[12px] font-bold bg-[#d75c99]  text-white">
-            مشاهده و چاپ نتیجه
-          </div>
-        </div>
+        <TopBar />
+
+        <SeeAndPrint />
 
         <div dir="rtl" className="bg-white px-8 text-sm ">
           <div className="flex rounded-md overflow-clip">
             <div className="bg-yellow-50 py-2 px-2">
-              <FiAlertTriangle className="text-4xl text-red-600" />
+              <FiAlertTriangle className=" warning-icon" />
             </div>
             <ul className="bg-gray-200 block w-full  py-4 px-4 space-y-2 text-xs">
               <li className="flex gap-1 items-center">
@@ -125,7 +100,7 @@ export default function Login() {
           </div>
         </div>
 
-        <div className="flex w-full bg-white justify-center px-24 gap-16">
+        <div className="flex w-full bg-white justify-center px-16 gap-16">
           <form
             onSubmit={handleLogin}
             className=" w-full bg-white  pt-8 min-h-screen "
@@ -243,6 +218,12 @@ export default function Login() {
             </div>
           </form>
         </div>
+        
+        <div className="flex flex-row-reverse py-4 px-2 bg-gray-200 justify-between">
+          <div dir="rtl">سایت سنجش آموزش کشور</div>
+          <div>© 2016 Sanjesh Organization</div>
+        </div>
+
       </div>
     </div>
   );

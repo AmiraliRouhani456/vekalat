@@ -2,10 +2,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
+import "./App.css";
+import MainLayout from "./components/MainLayout/MainLayout";
 export default function App() {
   return (
     <BrowserRouter>
-      {/* <div className="w-[1200px] min-w-[1200px] mx-auto"> */}
+
+      <MainLayout>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route
@@ -17,7 +20,8 @@ export default function App() {
             }
           />
         </Routes>
-      {/* </div> */}
+      </MainLayout>
+      
     </BrowserRouter>
   );
 }
