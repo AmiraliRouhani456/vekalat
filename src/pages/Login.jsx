@@ -4,6 +4,7 @@ import { FiAlertTriangle } from "react-icons/fi";
 import { PiDotsNineBold } from "react-icons/pi";
 import TopBar from "../components/module/TopBar";
 import SeeAndPrint from "../components/module/SeeAndPrint";
+import Footer from "../components/module/Footer";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -204,10 +205,7 @@ export default function Login() {
               </div>
         </div>
 
-        <div className="flex flex-row-reverse py-4 px-2 bg-gray-200 justify-between">
-          <div dir="rtl">سایت سنجش آموزش کشور</div>
-          <div>© 2016 Sanjesh Organization</div>
-        </div>
+      <Footer />
       </div>
     </div>
   );

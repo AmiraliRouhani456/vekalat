@@ -3,6 +3,7 @@ import TopBar from "../components/module/TopBar";
 import SeeAndPrint from "../components/module/SeeAndPrint";
 import { FiAlertTriangle } from "react-icons/fi";
 import { PiDotsNineBold } from "react-icons/pi";
+import Footer from "../components/module/Footer";
 
 export default function Dashboard() {
   const { username } = useParams();
@@ -153,6 +154,8 @@ export default function Dashboard() {
       </div>
 
       <button onClick={logout}>Logout</button>
+
+      <Footer />
     </div>
   );
 }
