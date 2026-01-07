@@ -9,13 +9,49 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   const lessons = [
-    { id: 1, name: "حقوق مدنی", score: "-3/33" },
-    { id: 2, name: "آیین دادرسی مدنی", score: "16/67" },
-    { id: 3, name: "حقوق تجارت", score: "-8/33" },
-    { id: 4, name: "اصول استنباط حقوق اسلامی و فقه", score: "سفید" },
-    { id: 5, name: "حقوق جزای عمومی و اختصاصی", score: "10/53" },
-    { id: 6, name: "آیین دادرسی کیفری", score: "-3/33" },
-    { id: 7, name: "حقوق اساسی", score: "15/00" },
+    { id: 1, name: "حقوق مدنی", score: "20" },
+    { id: 2, name: "آیین دادرسی مدنی", score: "30/14" },
+    { id: 3, name: "حقوق تجارت", score: "سفید" },
+    { id: 4, name: "اصول استنباط حقوق اسلامی و فقه", score: "56/78" },
+    { id: 5, name: "حقوق جزای عمومی و اختصاصی", score: "50" },
+    { id: 6, name: "آیین دادرسی کیفری", score: "60/32" },
+    { id: 7, name: "حقوق اساسی", score: "70" },
+  ];
+
+  // اطلاعات فردی برای جدول سمت راست
+  const profile = {
+    caseNumber: "4069979",
+    candidateNumber: "122439",
+    nationalId: "0021262292",
+    lastName: "علیاری",
+    firstName: "انسیه",
+    fatherName: "کاظم",
+    birthYear: "1377",
+    idNumber: "21262292",
+    gender: "زن",
+    quota: "آزاد",
+    kanun: "مرکز/ استان تهران /",
+    finalScore: "3536",
+    thresholdQuota: "6981",
+    rankCountryQuota: "66651",
+    status: "شما حدنصاب آزمون را به دست آورده اید ",
+  };
+
+  const infoRows = [
+    { label: "شماره پرونده", value: profile.caseNumber },
+    { label: "شماره داوطلبی", value: profile.candidateNumber },
+    { label: "شماره ملی", value: profile.nationalId },
+    { label: "نام خانوادگی", value: profile.lastName },
+    { label: "نام", value: profile.firstName },
+    { label: "نام پدر", value: profile.fatherName },
+    { label: "سال تولد", value: profile.birthYear },
+    { label: "شماره شناسنامه", value: profile.idNumber },
+    { label: "جنس", value: profile.gender },
+    { label: "سهمیه", value: profile.quota },
+    { label: "حوزه", value: profile.kanun },
+    { label: "نمره کل تراز نهایی", value: profile.finalScore },
+    { label: "حد نصاب در سهمیه", value: profile.thresholdQuota },
+    { label: "رتبه در کشور و سهمیه", value: profile.rankCountryQuota },
   ];
 
   const logout = () => {
@@ -24,7 +60,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div  className="bg-white min-h-screen">
+    <div  className="bg-white ">
       <TopBar />
       <SeeAndPrint />
 
@@ -59,52 +95,61 @@ export default function Dashboard() {
       </div>
 
 
-      <div dir="rtl" className="px-8 mt-6 flex gap-4">
-        <div className="overflow-x-auto">
+      <div dir="rtl" className="px-8 mt-6 flex gap-8 items-center">
+
+        <div className="overflow-x-auto w-1/2">
           <table className="w-full border border-gray-400 text-sm">
+            <tbody>
+              <tr>
+                <td colSpan="2" className="border border-gray-400 py-2 px-3">
+                  <img src="/img/PictureHandler.jpg" alt="" className="block mx-auto" />
+                </td>
+              </tr>
+              {infoRows.map((row, idx) => (
+                <tr key={idx}>
+                  <td className="border border-gray-400 py-1 px-3 text-center font-medium">
+                    {row.label}
+                  </td>
+                  <td className="border border-gray-400 py-1 px-3 text-center bg-gray-100">
+                    {row.value}
+                  </td>
+
+                </tr>
+              ))}
+              <tr>
+                <td colSpan="2" className="border border-gray-400 py-2 px-3 text-center text-green-700">
+                  {profile.status}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <div className="overflow-x-auto w-1/2 ">
+          <table className="w-full border border-gray-400 text-sm " >
             <thead>
               <tr className="bg-gray-200">
-                <th className="border border-gray-400 py-2 px-3 text-center w-16">درس</th>
-                <th className="border border-gray-400 py-2 px-3 text-center">نام درس</th>
-                <th className="border border-gray-400 py-2 px-3 text-center w-40">نمره خام(ص د)</th>
+                <th className="border border-gray-400 py-1 px-3 text-center w-16">درس</th>
+                <th className="border border-gray-400 py-1 px-3 text-center">نام درس</th>
+                <th className="border border-gray-400 py-1 px-3 text-center w-40">نمره خام(از صد)</th>
               </tr>
             </thead>
             <tbody>
               {lessons.map((row) => (
                 <tr key={row.id}>
-                  <td className="border border-gray-400 py-2 px-3 text-center bg-gray-100 font-semibold">
+                  <td className="border border-gray-400 py-1 px-3 text-center bg-gray-100 font-semibold">
                     {row.id}
                   </td>
-                  <td className="border border-gray-400 py-2 px-3 text-center">{row.name}</td>
-                  <td className="border border-gray-400 py-2 px-3 text-center">{row.score}</td>
+                  <td className="border border-gray-400 py-1 px-3 text-center">{row.name}</td>
+                  <td className="border border-gray-400 py-1 px-3 text-center">{row.score}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-                <div className="overflow-x-auto">
-          <table className="w-full border border-gray-400 text-sm">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="border border-gray-400 py-2 px-3 text-center w-16">درس</th>
-                <th className="border border-gray-400 py-2 px-3 text-center">نام درس</th>
-                <th className="border border-gray-400 py-2 px-3 text-center w-40">نمره خام(ص د)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {lessons.map((row) => (
-                <tr key={row.id}>
-                  <td className="border border-gray-400 py-2 px-3 text-center bg-gray-100 font-semibold">
-                    {row.id}
-                  </td>
-                  <td className="border border-gray-400 py-2 px-3 text-center">{row.name}</td>
-                  <td className="border border-gray-400 py-2 px-3 text-center">{row.score}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+
       </div>
 
       <button onClick={logout}>Logout</button>

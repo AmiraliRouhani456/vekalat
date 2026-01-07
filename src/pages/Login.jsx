@@ -35,7 +35,7 @@ export default function Login() {
     }
 
     // لاگین فیک
-    if (username === "admin" && password === "1234") {
+    if (username === "4069979" && password === "0021262292") {
       localStorage.setItem("isLoggedIn", true);
       navigate(`/dashboard/${username}`);
     } else {
