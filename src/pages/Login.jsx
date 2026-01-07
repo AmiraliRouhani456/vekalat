@@ -47,7 +47,6 @@ export default function Login() {
   return (
     <div className=" flex   justify-center ">
       <div className="  ">
-
         <TopBar />
 
         <SeeAndPrint />
@@ -100,130 +99,115 @@ export default function Login() {
           </div>
         </div>
 
-        <div className="flex w-full bg-white justify-center px-16 gap-16">
-          <form
-            onSubmit={handleLogin}
-            className=" w-full bg-white  pt-8 min-h-screen "
-          >
-            <div className=" space-y-6 border p-4 ">
-              <h2 className="text-center bg-gray-200 p-4">
-                جستجوی نتیجه با اطلاعات پرونده
-              </h2>
-              <div className="flex flex-row-reverse gap-2 items-center justify-end">
-                <label className="text-nowrap"> شماره پرونده</label>
-                <input
-                  className="w-[190px] border p-1 rounded"
-                  placeholder=" "
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </div>
+        <div className="bg-white">
+          <div className="flex w-full  justify-center px-16 gap-16">
+                <form
+                  onSubmit={handleLogin}
+                  className=" w-full bg-white  pt-8  "
+                >
+                  <div className=" space-y-6 border p-4 ">
+                    <h2 className="text-center bg-gray-200 p-4">
+                      جستجوی نتیجه با اطلاعات پرونده
+                    </h2>
+                    <div className="flex flex-row-reverse gap-2 items-center justify-end">
+                      <label className="text-nowrap"> شماره پرونده</label>
+                      <input
+                        className="w-[190px] border p-1 rounded"
+                        placeholder=" "
+                        onChange={(e) => setUsername(e.target.value)}
+                      />
+                    </div>
 
-              <div className="flex flex-row-reverse gap-2 items-center justify-end">
-                <label className="text-nowrap"> شماره شناسنامه</label>
-                <input
-                  type="password"
-                  className="w-[190px] border p-1 rounded"
-                  placeholder=""
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
+                    <div className="flex flex-row-reverse gap-2 items-center justify-end">
+                      <label className="text-nowrap"> شماره شناسنامه</label>
+                      <input
+                        type="password"
+                        className="w-[190px] border p-1 rounded"
+                        placeholder=""
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                    </div>
 
-              {/* CAPTCHA */}
-              <div className="flex flex-row-reverse items-center">
-                <span dir="rtl" className="text-sm  ">
-                  عبارت مقابل را عينا در کادر عبارت امنیتی درج كنيد :
-                </span>
-                <div className="flex items-center justify-between">
-                  <div className="bg-gray-200  rounded font-mono text-lg tracking-widest">
-                    <button
-                      type="button"
-                      onClick={generateCaptcha}
-                      className="text-2xl text-gray-800 font-semibold px-6 py-3"
-                    >
-                      {captcha}
+                    {/* CAPTCHA */}
+
+
+                    <input
+                      className="w-full border p-2 rounded"
+                      dir="rtl"
+                      placeholder="عبارت امنیتی"
+                      // value={captchaInput}
+                      onChange={(e) => setCaptchaInput(e.target.value)}
+                    />
+
+                    <button className="w-full mt-14 bg-gradient-to-b border-pu-500 border from-pink-200 to-pink-500 text-black py-2 rounded">
+                      مشاهده نتیجه
                     </button>
                   </div>
-                </div>
-              </div>
+                </form>
+                <form
+                  onSubmit={handleLogin}
+                  className=" w-full   bg-white  pt-8  "
+                >
+                  <div className=" space-y-6 border p-4 ">
+                    <h2 className="text-center bg-gray-200 p-4">
+                      جستجوی نتیجه با اطلاعات داوطلبی
+                    </h2>
+                    <div className="flex flex-row-reverse gap-2 items-center justify-end">
+                      <label className="text-nowrap"> شماره داوطلبی</label>
+                      <input
+                        className="w-[190px] border p-1 rounded"
+                        placeholder=" "
+                        onChange={(e) => setUsername(e.target.value)}
+                      />
+                    </div>
 
-              <input
-                className="w-full border p-2 rounded"
-                dir="rtl"
-                placeholder="عبارت امنیتی"
-                // value={captchaInput}
-                onChange={(e) => setCaptchaInput(e.target.value)}
-              />
+                    <div className="flex flex-row-reverse gap-2 items-center justify-end">
+                      <label className="text-nowrap"> شماره شناسنامه</label>
+                      <input
+                        type="password"
+                        className="w-[190px] border p-1 rounded"
+                        placeholder=""
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                    </div>
 
-              <button className="w-full bg-gradient-to-b border-pu-500 border from-pink-200 to-pink-500 text-black py-2 rounded">
-                مشاهده نتیجه
-              </button>
-            </div>
-          </form>
-          <form
-            onSubmit={handleLogin}
-            className=" w-full   bg-white  pt-8 min-h-screen "
-          >
-            <div className=" space-y-6 border p-4 ">
-              <h2 className="text-center bg-gray-200 p-4">
-                جستجوی نتیجه با اطلاعات پرونده
-              </h2>
-              <div className="flex flex-row-reverse gap-2 items-center justify-end">
-                <label className="text-nowrap"> شماره پرونده</label>
-                <input
-                  className="w-[190px] border p-1 rounded"
-                  placeholder=" "
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </div>
+                    {/* CAPTCHA */}
 
-              <div className="flex flex-row-reverse gap-2 items-center justify-end">
-                <label className="text-nowrap"> شماره شناسنامه</label>
-                <input
-                  type="password"
-                  className="w-[190px] border p-1 rounded"
-                  placeholder=""
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
+                    <input
+                      className="w-full border p-2 rounded"
+                      dir="rtl"
+                      placeholder="عبارت امنیتی"
+                      // value={captchaInput}
+                      onChange={(e) => setCaptchaInput(e.target.value)}
+                    />
 
-              {/* CAPTCHA */}
-              <div className="flex flex-row-reverse items-center">
-                <span dir="rtl" className="text-sm  ">
-                  عبارت مقابل را عينا در کادر عبارت امنیتی درج كنيد :
-                </span>
-                <div className="flex items-center justify-between">
-                  <div className="bg-gray-200  rounded font-mono text-lg tracking-widest">
-                    <button
-                      type="button"
-                      onClick={generateCaptcha}
-                      className="text-2xl text-gray-800 font-semibold px-6 py-3"
-                    >
-                      {captcha}
+                    <button className="w-full mt-14 bg-gradient-to-b border-pu-500 border from-pink-200 to-pink-500 text-black py-2 rounded">
+                      مشاهده نتیجه
                     </button>
                   </div>
-                </div>
+                </form>
               </div>
 
-              <input
-                className="w-full border p-2 rounded"
-                dir="rtl"
-                placeholder="عبارت امنیتی"
-                // value={captchaInput}
-                onChange={(e) => setCaptchaInput(e.target.value)}
-              />
-
-              <button className="w-full bg-gradient-to-b border-pu-500 border from-pink-200 to-pink-500 text-black py-2 rounded">
-                مشاهده نتیجه
-              </button>
-            </div>
-          </form>
+              <div className="flex items-center justify-between flex-row-reverse justify-center gap-4 py-6">
+                 <span>عبارت مقابل را عينا در کادر عبارت امنیتی درج كنيد </span>
+                <div className="bg-gray-200  rounded font-mono text-lg tracking-widest ">
+                 
+                  <button
+                    type="button"
+                    onClick={generateCaptcha}
+                    className="text-2xl text-gray-800 font-semibold px-16 py-3 "
+                  >
+                    
+                    {captcha}
+                  </button>
+                </div>
+              </div>
         </div>
-        
+
         <div className="flex flex-row-reverse py-4 px-2 bg-gray-200 justify-between">
           <div dir="rtl">سایت سنجش آموزش کشور</div>
           <div>© 2016 Sanjesh Organization</div>
         </div>
-
       </div>
     </div>
   );
